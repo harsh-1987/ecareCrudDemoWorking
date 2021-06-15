@@ -1,5 +1,5 @@
-FROM openjdk:11-jdk
-EXPOSE 9090
-ARG JAR_FILE=target/ecareCrudDemo-0.0.1-SNAPSHOT.jar
-ADD ${JAR_FILE} EcarePODFinal.jar
-ENTRYPOINT ["java","-jar","/EcarePODFinal.jar"]
+FROM openjdk:8-jdk-alpine
+LABEL maintainer="harsh.mishra@synechron.com"
+ADD target/ecareCrudDemo-0.0.1-SNAPSHOT.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","app.jar"]

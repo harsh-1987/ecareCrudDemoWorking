@@ -2,25 +2,25 @@ package com.synechron.ecareCrudDemo.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
 @Entity
 public class User {
-
-	
-
-	public User() {
-		super();
-	}
-
-	public User(long id, String name, String occupation) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.occupation = occupation;
-	}
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id ; 
 	
 	@Column
@@ -28,14 +28,6 @@ public class User {
 	
 	@Column
 	private String occupation;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;
@@ -52,4 +44,7 @@ public class User {
 	public void setOccupation(String occupation) {
 		this.occupation = occupation;
 	}
-}
+	
+	
+
+	}
